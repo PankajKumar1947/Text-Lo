@@ -4,7 +4,7 @@ import { isSlugExist, createSlug } from "./store.service.js";
 const router: Router = express.Router();
 
 router.get("/health", (_, res) => {
-  res.send("Server is Running");
+  res.send("----------Server is Running------------");
 });
 
 router.get("/:slug", async (req, res) => {
