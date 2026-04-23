@@ -13,7 +13,7 @@ export function createApp(): Application {
   app.set("views", path.join(process.cwd(), "views"));
 
   app.get("/", (_, res) => {
-    return res.sendFile(path.resolve("public", "index.html"));
+    return res.sendFile(path.resolve("public", "pages", "index.html"));
   });
 
   app.use(storeRoutes);

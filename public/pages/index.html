@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TextLo — Share Text Instantly</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="/favicon.svg" alt="TextLo Logo" width="28" height="28" style="border-radius: 6px;">
+        Text<span>Lo</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <button class="btn btn-outline">Sign In</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Share Text <span>Instantly</span></h1>
+          <p>A real-time text playground for developers. Write, edit & share code snippets, notes, or any content via simple URLs.</p>
+          <div class="hero-buttons">
+            <a href="/start" class="btn btn-cta">
+              Start Creating
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </a>
+            <a href="#features" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="editor-preview">
+            <div class="editor-header">
+              <span class="editor-dot red"></span>
+              <span class="editor-dot yellow"></span>
+              <span class="editor-dot green"></span>
+            </div>
+            <div class="editor-content">
+              <div class="editor-line"><span class="editor-line-num">1</span><span style="color:#818CFF;">// Share any content instantly</span></div>
+              <div class="editor-line"><span class="editor-line-num">2</span><span style="color:#FBBF24;">const</span> text = {</div>
+              <div class="editor-line"><span class="editor-line-num">3</span>&nbsp;&nbsp;url: <span style="color:#4ADE80;">"textlo.app/abc"</span>,</div>
+              <div class="editor-line"><span class="editor-line-num">4</span>&nbsp;&nbsp;share: <span style="color:#4ADEFA;">true</span>,</div>
+              <div class="editor-line"><span class="editor-line-num">5</span>&nbsp;&nbsp;collab: <span style="color:#4ADE80;">true</span></div>
+              <div class="editor-line"><span class="editor-line-num">6</span><span style="color:#FBBF24;">};</span></div>
+              <div class="editor-line"><span class="editor-line-num">7</span></div>
+              <div class="editor-line"><span class="editor-line-num">8</span><span style="color:#FBBF24;">async function</span> share(url) {</div>
+              <div class="editor-line"><span class="editor-line-num">9</span>&nbsp;&nbsp;<span style="color:#FCD34D;">await</span> socket.emit(<span style="color:#4ADE80;">'share'</span>, url);<span class="cursor"></span></div>
+              <div class="editor-line"><span class="editor-line-num">10</span><span style="color:#FBBF24;">}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Features</h2>
+        <p>Everything you need to share & collaborate</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Real-Time</h3>
+          <p>Collaborate with anyone. See changes instantly as they type.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+            </svg>
+          </div>
+          <h3>Share via URL</h3>
+          <p>Just share your link. Anyone can view or edit instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3>Private</h3>
+          <p>Keep content private & non-editable with Pro.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3>Monaco Editor</h3>
+          <p>Full code editor with syntax highlighting built-in.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+            </svg>
+          </div>
+          <h3>Auto-Save</h3>
+          <p>Content saved automatically. Never lose work.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>No Expiry</h3>
+          <p>Pro: content stays until plan expires + 1 month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pricing</h2>
+        <p>Choose the plan that fits your needs</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="price">$0<span>/mo</span></div>
+          <ul>
+            <li>Unlimited public stores</li>
+            <li>Real-time collaboration</li>
+            <li>Auto-delete after 1 month</li>
+            <li>All content public</li>
+          </ul>
+          <a href="/start" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Pro</h3>
+          <div class="price">$5<span>/mo</span></div>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Private stores</li>
+            <li>Non-editable mode</li>
+            <li>Keep until expiry + 1 month</li>
+          </ul>
+          <a href="/upgrade" class="btn btn-cta" style="width:100%;justify-content:center;">Upgrade</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="/favicon.svg" alt="TextLo Logo" width="22" height="22" style="border-radius: 4px;">
+        Text<span>Lo</span>
+      </a>
+      <div class="footer-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+
+</html>

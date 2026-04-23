@@ -4,34 +4,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    TextLo||<%= slug %>
+  <title>TextLo | <%= slug %>
   </title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    }
-
-    textarea {
-      background-color: black;
-      color: white;
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/playground.css">
 </head>
 
 <body>
-  <header style="height: 5vh;">
-    <%= slug %>
+  <header class="playground-header">
+    <div class="header-left">
+      <a href="/" class="logo">
+        <img src="/favicon.svg" alt="TextLo Logo" width="20" height="20">
+        Text<span>Lo</span>
+      </a>
+      <span class="divider">/</span>
+      <span class="slug"><%= slug %></span>
+    </div>
+    <div class="header-right">
+      <div class="language-selector">
+        <button id="lang-btn" class="language-btn">
+          <span id="current-lang">Plain Text</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div id="lang-dropdown" class="language-dropdown">
+          <div class="language-option" data-lang="">Plain Text</div>
+          <div class="language-option" data-lang="javascript">JavaScript</div>
+          <div class="language-option" data-lang="typescript">TypeScript</div>
+          <div class="language-option" data-lang="python">Python</div>
+          <div class="language-option" data-lang="html">HTML</div>
+          <div class="language-option" data-lang="css">CSS</div>
+          <div class="language-option" data-lang="json">JSON</div>
+          <div class="language-option" data-lang="markdown">Markdown</div>
+        </div>
+      </div>
+      <button class="btn btn-outline">Sign In</button>
+    </div>
   </header>
 
-  <div id="container" style="width:100vw;height:95vh;"></div>
+  <div id="container" oncontextmenu="return false;"></div>
+
+  <div id="loader" class="editor-loader">
+    <div class="spinner"></div>
+    <span class="loader-text">Loading editor...</span>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
-  <!-- Load the Monaco Loader -->
   <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
   <script>
     const slug = "<%= slug %>";
