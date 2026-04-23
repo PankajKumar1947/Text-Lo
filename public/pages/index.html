@@ -162,11 +162,19 @@
             <li>Non-editable mode</li>
             <li>Keep until expiry + 1 month</li>
           </ul>
-          <a href="/upgrade" class="btn btn-cta" style="width:100%;justify-content:center;">Upgrade</a>
+          <a href="#" onclick="showModal(event)" class="btn btn-cta" style="width:100%;justify-content:center;">Upgrade</a>
         </div>
       </div>
     </div>
   </section>
+
+  <div id="modal" class="modal-overlay">
+    <div class="modal">
+      <h3>Coming Soon!</h3>
+      <p>This feature is under implementation. It will be available soon. For now, enjoy the free plan!</p>
+      <button onclick="closeModal()" class="btn btn-primary">Got it</button>
+    </div>
+  </div>
 
   <footer>
     <div class="container">
@@ -183,6 +191,18 @@
   </footer>
 
 <script>
+    function showModal(e) {
+      e.preventDefault();
+      document.getElementById('modal').classList.add('show');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('show');
+    }
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-overlay')) {
+        closeModal();
+      }
+    });
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       if (window.scrollY > 20) {
