@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    <%= slug %>
+    TextLo||<%= slug %>
   </title>
   <style>
     body {
       background-color: black;
       color: white;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
     }
 
     textarea {
@@ -21,56 +24,19 @@
 </head>
 
 <body>
-  <header>Rendering Playground for <%= slug %>
+  <header style="height: 5vh;">
+    <%= slug %>
   </header>
 
-  <textarea cols="100" rows="20" id="content"></textarea>
+  <div id="container" style="width:100vw;height:95vh;"></div>
 
   <script src="/socket.io/socket.io.js"></script>
+  <!-- Load the Monaco Loader -->
+  <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
   <script>
     const slug = "<%= slug %>";
-    const socket = io();
-    // join the room with slug
-    socket.on("connect", () => {
-      socket.emit("join-room", slug);
-    });
-
-    function debounce(func, delay) {
-      let timeout;
-      return function (...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          func.apply(this, args);
-        }, delay)
-      }
-    }
-
-    function sendMessage(message) {
-      socket.emit("send-message", {
-        slug: slug,
-        message: input.value
-      });
-    }
-
-    const deboundSendMessage = debounce(sendMessage, 200);
-
-    const input = document.getElementById("content");
-
-    let isRemoteUpdate = false;
-    input.addEventListener('input', (e) => {
-      if (isRemoteUpdate) return;
-      if (input.value) {
-        deboundSendMessage(input.value)
-      }
-    })
-
-    socket.on("receive-message", (msg) => {
-      console.log(msg);
-      isRemoteUpdate = true;
-      input.value = msg
-      isRemoteUpdate = false;
-    })
   </script>
+  <script src="/js/playground.js"></script>
 </body>
 
 </html>
