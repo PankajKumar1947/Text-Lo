@@ -1,6 +1,8 @@
-import express, { type Application } from "express";
+import express, { type Application, type Request, type Response, type NextFunction } from "express";
 import path from "node:path";
 import storeRoutes from "./store/store.routes.js";
+import authRoutes from "./auth/auth.routes.js";
+import { errorHandler } from "./common/middleware/error-handler.js";
 
 export function createApp(): Application {
   const app = express();
@@ -16,7 +18,18 @@ export function createApp(): Application {
     return res.sendFile(path.resolve("public", "pages", "index.html"));
   });
 
+  app.get("/login", (_, res) => {
+    return res.sendFile(path.resolve("public", "pages", "login.html"));
+  });
+
+  app.get("/register", (_, res) => {
+    return res.sendFile(path.resolve("public", "pages", "register.html"));
+  });
+
+  app.use("/api/auth", authRoutes);
   app.use(storeRoutes);
+
+  app.use(errorHandler);
 
   return app;
 }

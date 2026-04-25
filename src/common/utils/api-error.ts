@@ -3,17 +3,19 @@ import { STATUS_CODES } from "node:http";
 class ApiError extends Error {
   public statusCode: number;
   public success: boolean;
+  public errors: Record<string, string> | undefined;
 
-  constructor(statusCode: number, message: string) {
+  constructor(statusCode: number, message: string, errors?: Record<string, string>) {
     super(message || STATUS_CODES[statusCode] || "Error");
     this.statusCode = statusCode;
     this.success = false;
+    this.errors = errors;
 
     Error.captureStackTrace(this, this.constructor);
   }
 
-  static badRequest(message = "Bad Request") {
-    return new ApiError(400, message);
+  static badRequest(message = "Bad Request", errors?: Record<string, string>) {
+    return new ApiError(400, message, errors);
   }
 
   static unauthorized(message = "Unauthorized") {

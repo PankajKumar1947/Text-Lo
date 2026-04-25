@@ -10,5 +10,6 @@ function getRequiredEnv(key: string): string {
 
 export const dotEnv = {
   PORT: parseInt(process.env.PORT || "") || 3000,
-  MONGO_URI: getRequiredEnv("MONGO_URI")
+  MONGO_URI: getRequiredEnv("MONGO_URI"),
+  JWT_SECRET: getRequiredEnv("JWT_SECRET")
 };
