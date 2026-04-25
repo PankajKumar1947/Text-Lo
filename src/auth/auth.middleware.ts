@@ -14,7 +14,6 @@ declare global {
 
 const protectUser = (req: Request, _: Response, next: NextFunction) => {
   try {
-    // check bearer token
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       throw ApiError.unauthorized("Unauthorized");
@@ -37,4 +36,18 @@ const protectUser = (req: Request, _: Response, next: NextFunction) => {
   }
 }
 
-export { protectUser }
+const guestUser = (_: Request, res: Response, next: NextFunction) => {
+  const token = _.headers.authorization?.split(" ")[1];
+  if (token) {
+    try {
+      verifyToken(token);
+      return res.redirect("/start");
+    } catch {
+      next();
+    }
+  } else {
+    next();
+  }
+}
+
+export { protectUser, guestUser }

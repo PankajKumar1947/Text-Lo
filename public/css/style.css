@@ -132,6 +132,24 @@ nav .container {
   color: var(--primary);
 }
 
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.user-avatar:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 /* Hero */
 .hero {
   min-height: 100vh;

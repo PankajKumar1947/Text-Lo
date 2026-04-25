@@ -19,7 +19,7 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
-        <button class="btn btn-outline">Sign In</button>
+        <div id="navAuth"></div>
       </div>
     </div>
   </nav>
@@ -190,7 +190,8 @@
     </div>
   </footer>
 
-<script>
+<script type="module" src="/js/auth.js"></script>
+  <script>
     function showModal(e) {
       e.preventDefault();
       document.getElementById('modal').classList.add('show');
