@@ -11,7 +11,7 @@ router.get("/:slug", async (req, res) => {
   const slug = req.params.slug;
 
   if (slug === "js" || slug.startsWith("js/") || slug === "css" || slug.startsWith("css/") ||
-    slug === "socket.io" || slug.startsWith("socket.io/")) {
+    slug === "socket.io" || slug.startsWith("socket.io/") || slug === "favicon.ico") {
     return res.status(404).send("Not Found");
   }
 

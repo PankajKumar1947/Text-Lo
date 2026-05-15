@@ -2,6 +2,7 @@ import { type Request, type Response, type NextFunction } from "express";
 import ApiError from "../utils/api-error.js";
 
 const errorHandler = (err: Error, _: Request, res: Response, next: NextFunction) => {
+  console.error("Error encountered:", err);
   if (err instanceof ApiError) {
     return res.status(err.statusCode).json({
       success: err.success,

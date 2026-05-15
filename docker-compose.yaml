@@ -1,17 +1,13 @@
-version: '3.8'
-
 services:
-  mongodb:
-    image: mongo:7
-    container_name: mongodb
-    restart: always
-    ports:
-      - "27017:27017"
+  textlo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
-    volumes:
-      - mongo-data:/data/db
-
-volumes:
-  mongo-data:
+      NODE_ENV: ${NODE_ENV}
+    container_name: textlo
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
